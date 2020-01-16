@@ -10,11 +10,12 @@ $(function (){
 		var $jokegoeshere = $('#jokegoeshere');
 		$.ajax({
 			type:'GET',
-			url: 'http://localhost/practica_api/api/apiChiste.php',
+			url: 'http://api.icndb.com/jokes/random',
 			dataType:'json',
 			success: function (result) {
 				if(result.type == 'success'){
-					$jokegoeshere.html(result.data[0].chiste);
+					$jokegoeshere.html(result.value.joke);
+					console.log(result.value.joke);
 				}else{
 					alert("No se encontraron chistes");
 				}
